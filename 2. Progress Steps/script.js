@@ -2,12 +2,12 @@ const progess = document.getElementById('progress');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
-//const nums = document.querySelector('circles');
-//const nums = Array.from(document.getElementsByClassName('circle'), e => e.innerText)
-//console.log(nums)
+
 
 
 let currentActive = 1; // Setting the currently active circle to one
+
+
 
 //When we click on next
 next.addEventListener('click', () => {
@@ -55,26 +55,11 @@ function update() {
     }
 }
 
+circles.forEach(e => {
+    e.addEventListener('click', () => {
+        const v = Number(e.dataset.value)
+        currentActive = v;
 
-//Just trying to make the numbers functional
-
-// function update2() {
-//     nums.forEach((num) => {
-
-//         circles.forEach((circle, idx) => {
-//             if (idx + 1 === num) {
-//                 circle.classList.add('active');
-//             } else {
-//                 circle.classList.remove('active');
-//             }
-//         })
-//         const actives = document.querySelectorAll('.active')
-//         progress.style.width = ((actives.length - 1) / (circles.length - 1)) * 100 + '%'
-//     })
-// }
-
-// nums.forEach((num, idx) => {
-//     num[idx].addEventListener('click', () => {
-//         update2()
-//     })
-// })
+        update();
+    })
+})
